@@ -1,0 +1,18 @@
+{
+    "Apache Maven dependency": {
+        "prefix": [
+            "nerd4j"
+        ],
+        "body": [
+            "<dependency>",
+            "\t<groupId>org.nerd4j</groupId>",
+            "\t<artifactId>nerd4j-utils</artifactId>",
+            "\t<version>2.0.0</version>",
+            "\t<type>jar</type>",
+            "</dependency>",
+        ],
+        "description": "Nerd4J-utils dependency for Apache Maven",
+        "scope": "text.xml"
+    }
+    
+}

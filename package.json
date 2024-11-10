@@ -1,0 +1,100 @@
+{
+  "name": "nerd4j-extension",
+  "displayName": "Nerd4J extension",
+  "description": "",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.64.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onContextMenu"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "java",
+        "path": "./snippets/java/java.code-snippets"
+      },
+      {
+        "language": "xml",
+        "path": "./snippets/dependencies/pom-dependencies.code-snippets"
+      }
+    ],
+    "languages": [
+      {
+        "id": "java",
+        "extensions": [
+          ".java"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "nerd4j-extension.openExtension",
+        "title": "Nerd4J",
+        "when": "resourceLangId == 'java'"
+      }
+    ],
+    "configuration": [
+      {
+        "id": "nerd4j",
+        "title": "Nerd4J",
+        "properties": {
+          "nerd4j.project.type": {
+            "type": "string",
+            "enum": ["Plain Java project", "Maven project"],
+            "description": "The type of Java project"
+          },
+          "nerd4j.java.outFolder": {
+            "type": "string",
+            "description": "The absolute path to the Java compiled files folder"
+          },
+          "nerd4j.java.libFolder": {
+            "type": "string",
+            "description": "The absolute path to the folder containing the project's dependeciy libraries"
+          },
+          "nerd4j.java.command": {
+            "type": "string",
+            "description": "The absolute path to the Java command to use."
+          },
+          "nerd4j.maven.localRepo": {
+            "type": "string",
+            "description": "The absolute path to the Maven local repository folder."
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.78.0",
+    "@types/which": "^3.0.0",
+    "@types/xml2js": "^0.4.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "which": "^4.0.0",
+    "xml2js": "^0.6.2"
+  }
+}

@@ -1,0 +1,19 @@
+# VSCode folders
+.vscode
+.vscode-test
+
+# Dev Container folders
+.devcontainer
+
+# Compiled files folders
+out
+node_modules
+
+# Local lock files
+package-lock.json
+
+# Java classes
+**/*.class
+
+# Mac folders
+.DS_Store

@@ -1,0 +1,82 @@
+{
+    "Printer": {
+        "prefix": [
+            "Printer",
+            "ToString.Printer"
+        ],
+        "body": [
+            "ToString.Printer() {",
+            "\n\t/**",
+            "\t * {@inheritDoc}",
+            "\t */",
+            "\t@Override",
+            "\tpublic String apply(ToString.Configuration configuration) {",
+            "\n\t\tString separator = \"$1\";",
+            "\t\tString firstDelimeter = \"$2\";",
+            "\t\tString lastDelimeter = \"$3\";",
+            "\t\tString equalityOperator = \"$4\";",
+            "\t\tStringBuilder sb = new StringBuilder();",
+            "\n\t\t// get the class name",
+            "\t\tif (configuration.customClassName() != null)",
+            "\t\t\tsb.append(configuration.customClassName());",
+            "\t\telse if (configuration.fullClassPath())",
+            "\t\t\tsb.append(configuration.target().getClass().getCanonicalName());",
+            "\t\telse",
+            "\t\t\tsb.append(configuration.target().getClass().getSimpleName());",
+            "\t\tsb.append(firstDelimeter);",
+            "\t\tIterator<ToString.Configuration.Field> fields = configuration.fields().iterator();",
+            "\n\t\twhile (fields.hasNext()) {",
+            "\n\t\t\tToString.Configuration.Field field = fields.next();",
+            "\t\t\tsb.append(field.name).append(equalityOperator).append(field.value);",
+            "\n\t\t\t// Add separator if there are more fields",
+            "\t\t\tif (fields.hasNext())",
+            "\t\t\t\tsb.append(separator).append(\" \");",
+            "\t\t}",
+            "\t\tsb.append(lastDelimeter);",
+            "\t\treturn sb.toString();",
+            "\t}",
+            "}"
+        ],
+        "description": "Example of an implementation of a customizable layout using ToString.Printer",
+    },
+    "lang.*": {
+        "prefix": [
+            "nerd4j.utils.lang",
+            "import nerd4j.utils.lang"
+        ],
+        "body": [
+            "import org.nerd4j.utils.lang.*;"
+        ],
+        "description": "Import of the org.nerd4j.utils.lang library",
+    },
+    "tuple.*": {
+        "prefix": [
+            "nerd4j.utils.tuple",
+            "import nerd4j.utils.tuple"
+        ],
+        "body": [
+            "import org.nerd4j.utils.tuple.*;"
+        ],
+        "description": "Import of the org.nerd4j.utils.tuple library",
+    },
+    "math.*": {
+        "prefix": [
+            "nerd4j.utils.math",
+            "import nerd4j.utils.math"
+        ],
+        "body": [
+            "import org.nerd4j.utils.math.*;"
+        ],
+        "description": "Import of the org.nerd4j.utils.math library",
+    },
+    "cache.*": {
+        "prefix": [
+            "nerd4j.utils.cache",
+            "import nerd4j.utils.cache"
+        ],
+        "body": [
+            "import org.nerd4j.utils.cache.*;"
+        ],
+        "description": "Import of the org.nerd4j.utils.cache library",
+    }
+}
